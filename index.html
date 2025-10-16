@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eyi Boco | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Andika&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --deep-orange: #BBDEFF;
+      --light-orange: #f5a;
+      --white: #ffffff;
+      --dark-gray: #333;
+      --soft-gray: #f2f2f2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Andika', sans-serif;
+      background-color: var(--white);
+      color: var(--dark-gray);
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: var(--white);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 8%;
+    }
+
+    nav h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      color: var(--deep-orange);
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--dark-gray);
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--deep-orange);
+    }
+
+    /* ===== HERO ===== */
+    #home {
+      background: linear-gradient(180deg, var(--white), var(--soft-gray));
+      text-align: center;
+      padding: 150px 10% 100px;
+    }
+
+    #home h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: var(--deep-orange);
+    }
+
+    #home span {
+      color: var(--dark-gray);
+    }
+
+    #home p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    #home button {
+      background: var(--deep-orange);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 30px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    #home button:hover {
+      background: var(--light-orange);
+    }
+
+    /* ===== ABOUT ===== */
+    #about {
+      padding: 100px 10%;
+      background-color: var(--soft-gray);
+    }
+
+    #about h2 {
+      text-align: center;
+      color: var(--deep-orange);
+      font-family: 'Bebas Neue', sans-serif;
+      margin-bottom: 40px;
+      font-size: 2rem;
+    }
+
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .about-image img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--deep-orange);
+    }
+
+    .about-text {
+      max-width: 600px;
+      line-height: 1.8;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    /* ===== SKILLS ===== */
+    #skills {
+      padding: 100px 10%;
+    }
+
+    #skills h2 {
+      text-align: center;
+      color: var(--deep-orange);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-item {
+      background: var(--soft-gray);
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .skill-item:hover {
+      background: var(--deep-orange);
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    /* ===== PROJECTS ===== */
+    #projects {
+      background: var(--soft-gray);
+      padding: 100px 10%;
+    }
+
+    #projects h2 {
+      text-align: center;
+      color: var(--deep-orange);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: var(--white);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-card h3 {
+      margin: 15px;
+      color: var(--deep-orange);
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    .project-card p {
+      margin: 0 15px 15px;
+      color: #555;
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin: 10px 15px 20px;
+      padding: 8px 16px;
+      background: var(--deep-orange);
+      color: white;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+
+    .project-card a:hover {
+      background: var(--light-orange);
+    }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      padding: 100px 10%;
+    }
+
+    #contact h2 {
+      text-align: center;
+      color: var(--deep-orange);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Andika', sans-serif;
+      font-size: 1rem;
+    }
+
+    button[type="submit"] {
+      background: var(--deep-orange);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background: var(--light-orange);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--deep-orange);
+      color: white;
+      text-align: center;
+      padding: 20px 10%;
+    }
+
+    .social-links a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--light-orange);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+
+      .about-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      #home h2 {
+        font-size: 2rem;
+      }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <h1>My Portfolio</h1>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="fade-in">
+    <div class="hero-content">
+      <h2>Hello, I'm <span>Eyi Boco</span></h2>
+      <p>A Passionate Frontend Developer & Designer</p>
+      <button>View My Work</button>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="fade-in">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <div class="about-image">
+        <img src="your-photo.jpg" alt="Your Photo">
+      </div>
+      <div class="about-text">
+        <p>
+          I'm a web developer with a passion for creating modern, user-friendly websites.
+          I enjoy turning complex ideas into simple, beautiful interfaces.
+        </p>
+        <p>
+          In my spare time, I explore new technologies, write tutorials, and contribute to open-source projects.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="fade-in">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-item">HTML5</div>
+      <div class="skill-item">CSS3</div>
+      <div class="skill-item">JavaScript</div>
+      <div class="skill-item">React</div>
+      <div class="skill-item">Node.js</div>
+      <div class="skill-item">Git / GitHub</div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="fade-in">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <div class="project-card">
+        <img src="project1-thumbnail.jpg" alt="Project 1">
+        <h3>Josy chops</h3>
+        <p>Short description of the project, what it does, and technologies used.</p>
+        <a href="#">View Details</a>
+      </div>
+      <div class="project-card">
+        <img src="project2-thumbnail.jpg" alt="Project 2">
+        <h3>Zodiac signs</h3>
+        <p>Short description of the project, what it does, and technologies used.</p>
+        <a href="#">View Details</a>
+      </div>
+      <div class="project-card">
+        <img src="project3-thumbnail.jpg" alt="Project 3">
+        <h3>Breast cancer awareness</h3>
+        <p>Short description of the project, what it does, and technologies used.</p>
+        <a href="#">View Details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="fade-in">
+    <h2>Contact Me</h2>
+    <form>
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name">
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" placeholder="Enter your email">
+      <label for="message">Message:</label>
+      <textarea id="message" rows="5" placeholder="Write your message here"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Eyi Boco. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="#">Twitter</a>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal animations when elements scroll into view
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
